@@ -1,0 +1,39 @@
+# Dependencies
+node_modules/
+venv/
+
+# Compiled files
+*.pyc
+*.pyo
+__pycache__/
+
+# Build output
+build/
+dist/
+
+# Environment variables
+.env
+
+# Logs and temporary files
+*.log
+*.tmp
+
+# Database files
+*.sqlite
+*.db
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Editor configurations
+.vscode/
+.idea/
+
+# Cache
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Testing
+coverage/
