@@ -17,7 +17,7 @@ app.use(cors(
 app.use(bodyParser.json());
 
 // MongoDB Connection
-mongoose.connect(`${process.env.MONGODB_URL}/tododata`, {
+mongoose.connect(`${process.env.MONGODB_URL}`, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })
