@@ -5,14 +5,19 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 
 const app = express();
-const PORT = 5001; // Change this if needed
+const PORT = process.env.PORT; // Change this if needed
 
 // Middleware
-app.use(cors());
+app.use(cors(
+    {
+        origin: `${process.env.FRONTEND_URL}`,
+        methods :["GET","POST","PUT","DELETE"]
+    }
+));
 app.use(bodyParser.json());
 
 // MongoDB Connection
-mongoose.connect('mongodb://127.0.0.1:27017/tododata', {
+mongoose.connect(`${process.env.MONGODB_URL}/tododata`, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })
@@ -37,6 +42,11 @@ app.post('/rj/tasks', async (req, res) => {
         res.status(400).json({ error: error.message });
     }
 });
+
+// home route
+app.get('/',(req,res)=>{
+    res.json({message: "Todo backend service"})
+})
 
 // Get all Todos
 app.get('/rj/tasks', async (req, res) => {
